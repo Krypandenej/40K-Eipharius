@@ -167,15 +167,144 @@ obj/mortar/flare/blue
 	new flare_type(loc)
 	qdel(src)
 
-/obj/mortar/arty
-	name = "artillery shell"
+/obj/mortar/arty //Template object
+	name = "Artillery Shell"
 	desc = "You'll never see this it just explodes."
 
 /obj/mortar/arty/New()
 	..()
 	sleep(0)
+	qdel(src)
+
+/obj/mortar/arty/shrapnel
+	name = "Shrapnel Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/arty/shrapnel/New()
+	..()
+	sleep(0)
 	fragmentate(get_turf(src), 84)
 	qdel(src)
+
+/obj/mortar/arty/he
+	name = "HE Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/arty/he/New()
+	..()
+	sleep(0)
+	explosion(get_turf(src), 1, 2, 3, 4, 5)
+	fragmentate(get_turf(src), 14)
+	qdel(src)
+
+/obj/mortar/arty/incendiary
+	name = "Incendiary Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/arty/incendiary/New()
+	..()
+	sleep(0)
+	new /obj/flamer_fire(loc, 18, 14, "red", 12)
+	qdel(src)
+
+/obj/mortar/arty/phosgene
+	name = "Phosgene Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/arty/phosgene/New()
+	..()
+	sleep(0)
+	reagents.add_reagent(/datum/reagent/toxin/phosgene_gas, 200)
+	var/location = get_turf(src)
+	var/datum/effect/effect/system/smoke_spread/chem/S = new
+	S.attach(location)
+	S.set_up(reagents, 10, 0, location)
+	spawn(0)
+		S.start()
+	qdel(src)
+
+/obj/mortar/arty/phosphorus
+	name = "White Phosphorous Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/arty/phosphorus/New()
+	..()
+	sleep(0)
+	reagents.add_reagent(/datum/reagent/toxin/mustard_gas/white_phosphorus, 200)
+	var/location = get_turf(src)
+	var/datum/effect/effect/system/smoke_spread/chem/S = new
+	S.attach(location)
+	S.set_up(reagents, 10, 0, location)
+	spawn(0)
+		S.start()
+	qdel(src)
+
+/*/obj/mortar/arty/plasma
+	name = "Plasma Artillery Shell"
+	desc = "You'll never see this it just explodes."
+	fragment_types = list(/obj/item/projectile/energy/pulse/pulserifle)
+
+/obj/mortar/arty/plasma/New()
+	..()
+	sleep(0)
+	fragmentate(get_turf(src), 84)
+	qdel(src)*/
+
+/obj/mortar/bombard //BIG GUN, be careful about how you use it. //Base template object.
+	name = "Bombard Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/bombard/New()
+	..()
+	sleep(0)
+	qdel(src)
+
+/obj/mortar/bombard/shrapnel 
+	name = "Bombard Shrapnel Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/bombard/shrapnel/New()
+	..()
+	sleep(0)
+	fragmentate(get_turf(src), 240)
+	qdel(src)
+
+/obj/mortar/bombard/he
+	name = "HE Bombard Artillery Shell"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/bombard/he/New()
+	..()
+	sleep(0)
+	explosion(get_turf(src), 3, 5, 7, 9, 11)
+	fragmentate(get_turf(src), 48)
+	qdel(src)
+
+/obj/mortar/deathstrike //More or less a nuke. Don't misuse this.
+	name = "Deathstrike Missile"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/deathstrike/New()
+	..()
+	playsound(get_turf(src), 'sound/effects/siren.ogg', 100, TRUE)
+	command_announcement.Announce("Warning. Deathstrike missile launch detected.")
+	sleep(120)
+	explosion(get_turf(src), 12, 18, 22, 24, 26)
+	fragmentate(get_turf(src), 240)
+	qdel(src)
+
+/*/obj/mortar/deathstrike/vortex //More or less a nuke. Don't misuse this. //WIP until I add a way to get larger warp rifts. 
+	name = "Deathstrike Vortex Missile"
+	desc = "You'll never see this it just explodes."
+
+/obj/mortar/deathstrike/vortex/New()
+	..()
+	playsound(source, 'sound/effects/siren.ogg', 100, TRUE)
+	command_announcement.Announce("Warning. Deathstrike vortex missile launch detected.")
+	sleep(120)
+	new /turf/unsimulated/wall/supermatter/warp
+	qdel(src)*/
+
 
 /obj/item/grenade/frag/proc/on_explosion(var/turf/O)
 	if(explosion_size)
@@ -207,7 +336,7 @@ obj/mortar/flare/blue
 
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 2
-	throw_range = 6 //heavy, can't be thrown as far
+	throw_range = 8 //heavy, can't be thrown as far
 
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment=1)
 	explosion_size = 3
@@ -219,6 +348,7 @@ obj/mortar/flare/blue
 	icon_state = "krak_grenade"
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/strong=1)
 	explosion_size = 8
+	throw_range = 7
 	num_fragments = 4
 	w_class = ITEM_SIZE_SMALL
 
@@ -229,7 +359,20 @@ obj/mortar/flare/blue
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/strong=1)
 	explosion_size = 12
 	num_fragments = 7
+	throw_range = 6
 	w_class = ITEM_SIZE_SMALL
+
+/obj/item/grenade/frag/high_yield/krak/detpack
+	name = "Det Pack"
+	desc = "A standard issue imperial detpack, while simple these explosives when combined with grenades or further detpacks are capable of destroying even baneblades. Stand well clear!"
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/strong=1)
+	explosion_size = 16
+	num_fragments = 9
+	throw_range = 4
+	w_class = ITEM_SIZE_SMALL
+	icon = 'icons/obj/assemblies.dmi'
+	icon_state = "plastic-explosive0"
+	item_state = "plasticx"
 
 /obj/item/grenade/frag/high_yield/homemade
 	name = "Pipe Grenade"

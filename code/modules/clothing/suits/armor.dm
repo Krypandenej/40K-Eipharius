@@ -744,8 +744,8 @@ obj/item/clothing/suit/armor
 /obj/item/clothing/suit/armor/guardsman/bloodpact
 	name = "Sekite Armor"
 	desc = "War torn and suited to savage needs. This is the armor of a Sekite warrior. It has certainly seen blood flown upon it."
-	icon_state = "heretmil"
-	item_state = "heretmil"
+	icon_state = "Sek_Armor"
+	item_state = "Sek_Armor"
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
 	armor = list(melee = 7, bullet = 28, laser = 33, energy = 30, bomb = 40, bio = 30, rad = 30)
 	sales_price = 10
@@ -1309,6 +1309,17 @@ obj/item/clothing/suit/armor
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	flags_inv = HIDEJUMPSUIT|HIDEGLOVES // bricked temporarily. people were abusing the shit out of it, can be used as an object in an imperial cult/heretic path thing. we can raise the armor values then later
 
+//Zealot
+/obj/item/clothing/suit/armor/zealot
+	name = "Zealot's Mantle"
+	desc = "A mantle blessed by the Ecceliarchy to protect the wearer from threats to aid in protecting the faithful and to repel the heretic."
+	icon_state = "zealot"
+	item_state = "zealot"
+	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
+	armor = list(melee = 30, bullet = 11, laser = 11, energy = 25, bomb = 40, bio = 20, rad = 20) //Hidden armoured plates
+	sales_price = 30
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 
 // Eldar
 /obj/item/clothing/suit/armor/eldar
@@ -1375,10 +1386,10 @@ obj/item/clothing/suit/armor
   body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 /obj/item/clothing/suit/armor/heretcoat
-	name = "Scrap Overcoat"
+	name = "Sekite Overcoat"
 	desc = "Overcoat made with leather and some cheap forged steel parts"
-	icon_state = "heretmil"
-	item_state = "heretmil"
+	icon_state = "Sek_Armor"
+	item_state = "Sek_Armor"
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun,/obj/item/gun/projectile)
 	armor = list(melee = 9, bullet = 32, laser = 32, energy = 30, bomb = 40, bio = 30, rad = 30)
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
@@ -1390,6 +1401,17 @@ obj/item/clothing/suit/armor
 	desc = "A robe made out of some strange silk like material. It has crude drawings on the inner coat, odd runes and symbolisms on it. You feel a sense of being watched being near it."
 	icon_state = "tzeecult"
 	item_state = "tzeecult"
+	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun,/obj/item/gun/projectile)
+	armor = list(melee = 8, bullet = 34, laser = 34, energy = 30, bomb = 40, bio = 30, rad = 30)
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/suit/armor/heretcoat/nurgcult
+	name = "Filthy Coat"
+	desc = "An old leather coat covered in some strange substance smelling foul, like a mix of human feces, vomit and rotten guts...do you really want to go near them?"
+	icon_state = "nurgc"
+	item_state = "nurgc"
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun,/obj/item/gun/projectile)
 	armor = list(melee = 8, bullet = 34, laser = 34, energy = 30, bomb = 40, bio = 30, rad = 30)
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
@@ -1931,6 +1953,30 @@ obj/item/clothing/suit/armor
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	sales_price = 40
 
+/obj/item/clothing/suit/armor/royalguard
+	name = "Captain's Carapace"
+	desc = "The Carapace Armor of the local Messian Captain."
+	icon_state = "royalgc"
+	item_state = "royalgc"
+	armor = list(melee = 9, bullet = 38, laser = 38, energy = 30, bomb = 40, bio = 30, rad = 50)
+	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	sales_price = 60
+
+/obj/item/clothing/suit/armor/pdfcapt
+	name = "Captain's Carapace"
+	desc = "The Carapace Armor of the local Messian Captain."
+	icon_state = "PDF-CaptainT"
+	item_state = "PDF-CaptainT"
+	armor = list(melee = 9, bullet = 38, laser = 38, energy = 30, bomb = 40, bio = 30, rad = 50)
+	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	sales_price = 60
+
 /obj/item/clothing/suit/armor/tduster
 	name = "Armored Duster"
 	desc = "A duster with a flak plate insert, sewn together with shafra leather."
@@ -2084,10 +2130,10 @@ obj/item/clothing/suit/armor
 
 
 /obj/item/clothing/suit/armor/flak1/renegadearmor
-	name = "renegade militia armor"
-	desc = "Makeshift steel armor, while not refined, it will protect you vital organs. It has strange marks carved into it"
-	icon_state = "renegade_militia_armor"
-	item_state = "renegade_militia_armor"
+	name = "Sekite armor"
+	desc = "Makeshift steel armor, while not refined, it will protect you vital organs. It has strange marks carved into it."
+	icon_state = "Sek_Armor"
+	item_state = "Sek_Armor"
 	armor = list(melee = 8, bullet = 34, laser = 34, energy = 34, bomb = 30, bio = 30, rad = 50)
 
 /obj/item/clothing/suit/armor/flak1/renegadearmor/bloodpact
@@ -2198,7 +2244,7 @@ obj/item/clothing/suit/armor/scion/trooper
 		del(P)
 	else
 		user.visible_message("<span class='danger'>\The [user]'s temporal field warps the [attack_text] around them!</span>")
-		return 1
+		return 100
 
 
 /obj/item/clothing/suit/storage/hooded/inquisitor/chronos/Destroy()
@@ -2207,3 +2253,190 @@ obj/item/clothing/suit/armor/scion/trooper
 
 /obj/item/clothing/suit/storage/hooded/inquisitor/chronos/Process()
 	return ..()
+
+/obj/item/clothing/suit/storage/hooded/inquisitor/chronos
+	name = "Ordo Chronos Armour"
+	desc = "Mysterious armour belonging to the strange Inquisitors of the ordo Chronos, this suit seems to warp space around it."
+	icon_state = "inqarmor"
+	item_state = "inqarmor"
+	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
+	armor = list(melee = 100, bullet = 100, laser = 100, energy = 100, bomb = 100, bio = 100, rad = 100) //Ordo Chronos bullshit, and it's event armour.
+	sales_price = 0
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS | HEAD| FACE | EYES
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	action_button_name = "Toggle Hood"
+	hoodtype = /obj/item/clothing/head/inqhood
+
+/obj/item/clothing/suit/storage/hooded/inquisitor/chronos/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = -0.5
+
+
+/obj/item/clothing/suit/storage/hooded/inquisitor/chronos/Initialize()
+	. = ..()
+
+
+/obj/item/clothing/suit/storage/hooded/archeotech
+	name = "Archeotech Armour"
+	desc = "This armour is clearly antique, seemingly predating the Imperium entirely."
+	icon_state = "military_rig_sealed"
+	item_state = "military_rig_sealed"
+	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
+	armor = list(melee = 100, bullet = 100, laser = 100, energy = 100, bomb = 100, bio = 100, rad = 100) //Archeotech, and it's event armour.
+	sales_price = 0
+	canremove = 0
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS | HEAD| FACE | EYES
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	action_button_name = "Toggle Helmet"
+	hoodtype = /obj/item/clothing/head/helmet/archoetech
+	var/displaced = 0
+
+/obj/item/clothing/suit/storage/hooded/archeotech/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = -0.5
+
+/obj/item/clothing/suit/storage/hooded/archeotech/update_icon()
+	if(suittoggled)
+		icon_state = "military_rig_sealed"
+	else
+		icon_state = "military_rig_sealed"
+
+
+/obj/item/clothing/suit/storage/hooded/archeotech/Initialize()
+	. = ..()
+
+/obj/item/clothing/suit/storage/hooded/archeotech/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(istype(damage_source, /obj/item/projectile))
+		var/obj/item/projectile/P = damage_source
+		user.visible_message("<span class='danger'>[attack_text] splashes harmlessly against [user]'s armour!</span>")
+		START_PROCESSING(SSobj, src)
+		del(P)
+	else
+		user.visible_message("<span class='danger'>\The [attack_text] splashes harmlessly against [user]'s armour!</span>")
+		return 100
+
+
+/obj/item/clothing/suit/storage/hooded/archeotech/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/item/clothing/suit/storage/hooded/archeotech/Process()
+	return ..()
+
+/obj/item/clothing/suit/storage/hooded/archeotech/verb/activaterifle()
+	set name = "Activate Archeotech Rifle"
+	set category = "Weapons"
+	set src in usr
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	else
+		to_chat(usr,"You activate your integrated Storm Bolter.")
+		usr.put_in_hands(new /obj/item/gun/energy/archeotech/integrated(usr))
+
+/obj/item/clothing/head/helmet/archoetech
+	name = "Archeotech Helmet"
+	desc = "An ancient looking helmet."
+	icon_state = "military_rig"
+	item_state = "military_rig"
+	armor = list(melee = 100, bullet = 100, laser = 100, energy = 100, bomb = 100, bio = 100, rad = 100)
+	siemens_coefficient = 0
+	canremove = 0
+	siemens_coefficient = 0
+	unacidable = 1
+	body_parts_covered = HEAD|FACE|EYES
+
+/obj/item/clothing/suit/storage/hooded/archeotech/verb/temporaldisplace()
+	set name = "Toggle Temporal Displacement"
+	set category = "Abilities"
+	set src in usr
+	if(displaced == 0)
+		usr.transforming = 1 //protects the mob from being transformed (replaced) midjaunt and getting stuck in bluespace
+		if(usr.buckled)
+			usr.buckled.unbuckle_mob()
+		spawn(0)
+			var/mobloc = get_turf(usr.loc)
+			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
+			var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
+			animation.SetName("water")
+			animation.set_density(0)
+			animation.anchored = 1
+			animation.icon = 'icons/mob/mob.dmi'
+			animation.layer = 5
+			animation.master = holder
+			if(usr.buckled)
+				usr.buckled = null
+			displace_disappear(animation, usr)
+			usr.loc = holder
+			usr.transforming=0 //mob is safely inside holder now, no need for protection.
+			to_chat(usr, "<span class='notice'>You seperate yourself from the timestream, displacing yourself a fraction out of time.</span>")
+			displaced = 1
+	else
+		var/mobloc = get_turf(usr.loc)
+		var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
+		var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
+		mobloc = holder.last_valid_turf
+		animation.loc = mobloc
+		usr.canmove = 0
+		holder.reappearing = 1
+		//sleep(20)
+		displace_reappear(animation, usr)
+		sleep(5)
+		if(!usr.forceMove(mobloc))
+			for(var/direction in list(1,2,4,8,5,6,9,10))
+				var/turf/T = get_step(mobloc, direction)
+				if(T)
+					if(usr.forceMove(T))
+						break
+		usr.canmove = 1
+		usr.client.eye = usr
+		to_chat(usr, "<span class='notice'>You return yourself to normal time.</span>")
+		displaced = 0
+		qdel(animation)
+		qdel(holder)
+
+
+
+/obj/item/clothing/suit/storage/hooded/archeotech/proc/displace_disappear(var/atom/movable/overlay/animation, usr)
+	animation.icon_state = "liquify"
+	flick("liquify",animation)
+
+/obj/item/clothing/suit/storage/hooded/archeotech/proc/displace_reappear(var/atom/movable/overlay/animation, usr)
+	flick("reappear",animation)
+
+/obj/item/clothing/suit/storage/hooded/archeotech/verb/archeocloak(mob/user)
+	set name = "Toggle Photonic Distortion Field"
+	set category = "Abilities"
+	set src in usr
+	if(user.alpha == 255)
+		var/mobloc = get_turf(user.loc)
+		var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
+		var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
+		mobloc = holder.last_valid_turf
+		animation.loc = mobloc
+		to_chat(user, "<span class='notice'>You activate the Photonic Distortion Field.</span>")
+		user.alpha = 0
+		animation.icon_state = "cloak"
+		flick("liquify",animation)
+	else
+		var/mobloc = get_turf(user.loc)
+		var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
+		var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
+		mobloc = holder.last_valid_turf
+		animation.loc = mobloc
+		to_chat(user, "<span class='notice'>You disable the Photonic Distortion Field.</span>")
+		user.alpha = 255
+		animation.icon_state = "uncloak"
+		flick("liquify",animation)
+
+/obj/item/storage/backpack/ert
+	name = "Archeotech Backpack"
+	desc = "An ancient looking backpack."
+	icon_state = "ert_commander"
+	item_state_slots = list(
+		slot_l_hand_str = "securitypack",
+		slot_r_hand_str = "securitypack",
+		)
+	canremove = 0
+	max_storage_space = 36

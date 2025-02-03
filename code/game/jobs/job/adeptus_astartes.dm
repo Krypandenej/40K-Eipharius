@@ -20,7 +20,8 @@
 		"Salamander Techmarine" = /decl/hierarchy/outfit/job/astartes/saltech,
 		"Ultramarine Tactical Marine" = /decl/hierarchy/outfit/job/astartes/ultramarine,
 		"Ultramarine Apothecary" = /decl/hierarchy/outfit/job/astartes/ultrapoth,
-		"Ultramarine Techmarine" = /decl/hierarchy/outfit/job/astartes/ultratech
+		"Ultramarine Techmarine" = /decl/hierarchy/outfit/job/astartes/ultratech,
+		"Ultramarine Terminator" = /decl/hierarchy/outfit/job/astartes/ultraterm
 		)
 	selection_color = "#3e0177"
 	department_flag = SEC|COM
@@ -119,7 +120,8 @@
 		"Salamander Techmarine" = /decl/hierarchy/outfit/job/astartes/saltech,
 		"Ultramarine Tactical Marine" = /decl/hierarchy/outfit/job/astartes/ultramarine,
 		"Ultramarine Apothecary" = /decl/hierarchy/outfit/job/astartes/ultrapoth,
-		"Ultramarine Techmarine" = /decl/hierarchy/outfit/job/astartes/ultratech
+		"Ultramarine Techmarine" = /decl/hierarchy/outfit/job/astartes/ultratech,
+		"Ultramarine Terminator" = /decl/hierarchy/outfit/job/astartes/ultraterm
 		)
 
 //assfartes outfits
@@ -152,14 +154,14 @@
 
 	flags = OUTFIT_NO_BACKPACK|OUTFIT_NO_SURVIVAL_GEAR
 
-/decl/hierarchy/outfit/job/astartes/children
-	name = OUTFIT_JOB_NAME("Chaos Marine -- Children")
+/decl/hierarchy/outfit/job/astartes/nightlord
+	name = OUTFIT_JOB_NAME("Chaos Marine -- Nightlord")
 	uniform = /obj/item/clothing/under/astartes/bodysuit
-	suit = /obj/item/clothing/suit/armor/astartes/emperorschildren
-	back = /obj/item/storage/backpack/satchel/astartes/emperorschildren
+	suit = /obj/item/clothing/suit/armor/astartes/nightlord
+	back = /obj/item/storage/backpack/satchel/astartes/nightlords
 	belt = /obj/item/melee/chain/pcsword
 	shoes = /obj/item/clothing/shoes/jackboots/astartes/raven
-	head = /obj/item/clothing/head/helmet/astartes/emperorschildren
+	head = /obj/item/clothing/head/helmet/astartes/nightlord
 	mask = null
 	l_ear = /obj/item/device/radio/headset/cult1
 	r_ear = /obj/item/device/radio/headset/cult2
@@ -527,7 +529,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	l_pocket = /obj/item/storage/box/ifak/advanced/astartes
 	r_pocket = null
-	suit_store = /obj/item/gun/projectile/bolter_pistol/astartes
+	suit_store = null
 	neck = /obj/item/reagent_containers/food/drinks/canteen
 	backpack_contents = list(
 	/obj/item/ammo_magazine/bolt_pistol_magazine/astartes = 3,
@@ -536,4 +538,29 @@
 	/obj/item/stack/thrones2/five = 1,
 	/obj/item/stack/thrones3/ten = 1,
 	/obj/item/clothing/glasses/astartes/visor/techmarine = 1
+	)
+
+/decl/hierarchy/outfit/job/astartes/ultraterm
+	name = OUTFIT_JOB_NAME("Ultramarine Terminator")
+	uniform = /obj/item/clothing/under/astartes/bodysuit
+	gloves = /obj/item/clothing/gloves/combat/cadian
+	suit = /obj/item/clothing/suit/armor/astartes/terminator/shielded
+	back = /obj/item/storage/backpack/satchel/astartes/ultramarine
+	belt = null
+	gloves = /obj/item/clothing/gloves/combat/cadian
+	shoes = /obj/item/clothing/shoes/jackboots/astartes/smurfs
+	glasses = /obj/item/clothing/glasses/astartes/visor
+	mask = /obj/item/clothing/mask/gas/security
+	head = /obj/item/clothing/head/helmet/astartes/ultramarine
+	l_ear = /obj/item/device/radio/headset/headset_sec
+	glasses = /obj/item/clothing/glasses/astartes/visor
+	l_pocket = /obj/item/storage/box/ifak/advanced/astartes
+	neck = null
+	suit_store = null
+	backpack_contents = list(
+	/obj/item/reagent_containers/food/snacks/sandwich = 1,
+	/obj/item/stack/thrones/five = 1,
+	/obj/item/stack/thrones2/five = 1,
+	/obj/item/stack/thrones3/ten = 1,
+	/obj/item/clothing/glasses/astartes/visor = 1
 	)

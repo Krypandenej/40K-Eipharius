@@ -25,6 +25,11 @@
 	ingredients = list(/obj/item/newore/gems/emerald)
 	product_path = (/obj/item/clothing/suit/armor/heretcoat/tzeecult)
 
+/datum/rune_recipe/tzeentch/key
+	name = "Daemon Key"
+	ingredients = list(/obj/item/stack/material/diamond)
+	product_path = (/obj/item/card/id/key/super/daemon)
+
 /datum/rune_recipe/tzeentch/cloth1
 	name = "Helmet1 Rite"
 	ingredients = list(/obj/item/newore/gems/ruby)
@@ -91,7 +96,7 @@
 /datum/rune_recipe/tzeentch/skinless
 	name = "Skinless Rite"
 	ingredients = list(/mob/living/carbon/human, /obj/item/flame/candle)
-	product_path = /mob/living/carbon/human
+	product_path = /mob/living/simple_animal/hostile/flesh/abomination/tzee
 
 /datum/rune_recipe/tzeentch/transmutation
 	name = "Transmutation Rite"

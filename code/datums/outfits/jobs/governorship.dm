@@ -58,6 +58,44 @@
 	/obj/item/pen = 1,
 	/obj/item/stack/thrones3/twenty = 1,
 	 )
+
+//Royal Guard
+/decl/hierarchy/outfit/job/royalguard
+	name = OUTFIT_JOB_NAME("Royal Guard")
+	uniform = /obj/item/clothing/under/cadian_uniform
+	back = /obj/item/storage/backpack/satchel/heavy
+	belt = /obj/item/device/flashlight/lantern
+	gloves = /obj/item/clothing/gloves/royalguard
+	glasses = /obj/item/clothing/glasses/cadiangoggles/elite
+	shoes = /obj/item/clothing/shoes/jackboots/noble
+	suit = /obj/item/clothing/suit/armor/pdfcapt
+	head = /obj/item/clothing/head/helmet/pdfcapt
+	mask = /obj/item/clothing/mask/gas/half/cadianrespirator
+	glasses = null
+	id = /obj/item/card/id/dog_tag/guardsman
+	neck = /obj/item/reagent_containers/food/drinks/canteen
+	l_ear = /obj/item/device/radio/headset/red_team
+	r_ear = /obj/item/device/radio/headset/heads/hop
+	l_pocket = /obj/item/storage/box/ifak
+	r_pocket = /obj/item/clothing/gloves/combat/cadian
+	r_hand = /obj/item/storage/box/coin
+	suit_store = /obj/item/gun/projectile/thrower
+	backpack_contents = list(
+	/obj/item/stack/thrones2 = 3,
+	/obj/item/storage/box/sniperammo/apds/bos = 2,
+	/obj/item/clothing/accessory/holster/waist = 1,
+	/obj/item/gun/projectile/talon/renegade = 1,
+	/obj/item/ammo_magazine/mc45mm/ap = 1,
+	/obj/item/reagent_containers/food/snacks/warfare/rat = 1,
+	/obj/item/stack/thrones = 1,
+	/obj/item/stack/thrones2 = 1,
+	/obj/item/paper/administratum/omega = 1,
+	/obj/item/paper/administratum/weapon4 = 1,
+	/obj/item/pen = 1,
+	/obj/item/device/whistle = 1
+	)
+
+
 /*
 /decl/hierarchy/outfit/job/hop
 	name = OUTFIT_JOB_NAME("Seneschal")

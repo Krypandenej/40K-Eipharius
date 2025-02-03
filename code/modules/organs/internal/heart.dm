@@ -114,6 +114,11 @@
 
 				for(var/datum/wound/W in temp.wounds)
 
+					if(CE_MAJORBLOODCLOT in owner.chem_effects)
+						W.bandage()
+						to_chat(owner, "You feel your wounds scab over and stop bleeding!")
+						visible_message("<span class='danger'>[src]'s wounds begin to slow their bleeding!</span>")
+
 					if(!open_wound && (W.damage_type == CUT || W.damage_type == PIERCE) && W.damage && !W.is_treated())
 						open_wound = TRUE
 
@@ -134,6 +139,8 @@
 				if(bleed_amount)
 					if(CE_BLOODCLOT in owner.chem_effects)
 						bleed_amount *= 0.8 // won't do much, but it'll help
+					if(CE_MAJORBLOODCLOT in owner.chem_effects)
+						bleed_amount *= 0.05 // Cuts down on bleeding, even when the wounds aren't fully patched.
 					if(open_wound)
 						blood_max += bleed_amount
 						do_spray += "the [temp.artery_name] in \the [owner]'s [temp.name]"
@@ -152,6 +159,8 @@
 			blood_max *= 0.7
 		if(CE_STABLE in owner.chem_effects) // inaprovaline
 			blood_max *= 0.8
+		if(CE_MAJORBLOODCLOT in owner.chem_effects)
+			blood_max *= 0.05 // Cuts down on bleeding, even when the wounds aren't fully patched.
 
 		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)
 			owner.visible_message("<span class='danger'>Blood squirts from [pick(do_spray)]!</span>")
@@ -224,6 +233,8 @@
 
 /obj/item/organ/internal/heart/astartes/Process()
 	if(owner)
+		if(src.damage <= 60 && prob(15)) //Minor degree of organ healing.
+			src.damage -= 1
 		handle_pulse()
 		if(pulse)
 			handle_heartbeat()

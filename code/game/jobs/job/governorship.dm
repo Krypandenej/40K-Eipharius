@@ -188,17 +188,19 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 200 KANTRAEL PATTERN LASGUNS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 15 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.</font></b></span>")
 					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 200 KANTRAEL PATTERN LASGUNS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 15 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.")
 					to_world("<B>You hear that The Adeptus Mechanicus has been facing difficulty in the city, that the Magos Explorator at the hands of heretical sabotage cannot fulfill the tithe. 200 kantrael pattern lasguns are needed for the crusade effort, the AdMech has failed the Lord Militant General. Despite nearly making the tithe quota the Void Captain demands the entirety of the order is met by any means necessary.</B>")
-					sleep(600*30) // 600 = 1 minute. * = number of minutes. 600*30 = 30 minutes.
-					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 200 KANTRAEL PATTERN LASGUNS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 15 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.</font></b></span>")
-					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 200 KANTRAEL PATTERN LASGUNS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 15 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.")
-					to_world("<B>You hear that the tithe vessel has been in dock for days awaiting it's final deliveries for the Holy Crusade Force -- rumours are the Lord Militant General had invested many millions of thrones into the growth of the colony world, you would imagine his anger at such an investment going so poorly.</B>")
 					// 2nd tithe don't mix these up
+					sleep(600*3) // 3 mins
 					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. HOUSE VANE ORGANIC SHIPMENT INSUFFICIENT. ORDER OF 1,000 UNITS OF FROZEN PERISHABLES NOT MET -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 50 UNITS OF FOOD. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF NON PERISHABLES OR HUMAN MEAT IN THEIR ABSENCE. VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.</font></b></span>")
 					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. HOUSE VANE ORGANIC SHIPMENT INSUFFICIENT. ORDER OF 1,000 UNITS OF FROZEN PERISHABLES NOT MET -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 50 UNITS OF FOOD. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF NON PERISHABLES OR HUMAN MEAT IN THEIR ABSENCE. VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.")
 					to_world("<B>You hear that House Vane has been facing difficulty making it's yearly harvest, that the Lord Trader themself cannot fulfill the tithe. 1,000 units of frozen perishles are needed for the crusade effort, House Vane has failed the Lord Militant General. Despite nearly making the tithe quota the Void Captain demands the entirety of the order is met by any means necessary.</B>")
-					sleep(600*30)
+					sleep(600*30) // 30 mins
 					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. HOUSE VANE ORGANIC SHIPMENT INSUFFICIENT. ORDER OF 1,000 UNITS OF FROZEN PERISHABLES NOT MET -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 50 UNITS OF FOOD. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF NON PERISHABLES OR HUMAN MEAT IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.</font></b></span>")
 					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. HOUSE VANE ORGANIC SHIPMENT INSUFFICIENT. ORDER OF 1,000 UNITS OF FROZEN PERISHABLES NOT MET -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 50 UNITS OF FOOD. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF NON PERISHABLES OR HUMAN MEAT IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.")
+					to_world("<B>You hear that the tithe vessel has been in dock for days awaiting it's final deliveries for the Holy Crusade Force -- rumours are the Lord Militant General had invested many millions of thrones into the growth of the colony world, you would imagine his anger at such an investment going so poorly.</B>")
+					// 2nd tithe
+					sleep(600*3) // 3 mins
+					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 200 KANTRAEL PATTERN LASGUNS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 15 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.</font></b></span>")
+					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 200 KANTRAEL PATTERN LASGUNS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 15 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.")
 					to_world("<B>You hear that the tithe vessel has been in dock for days awaiting it's final deliveries for the Holy Crusade Force -- rumours are the Lord Militant General had invested many millions of thrones into the growth of the colony world, you would imagine his anger at such an investment going so poorly.</B>")
 					sleep(600*5)
 					to_world("<B>You have heard tales.... of the Pathfinder. An eccentric collector of baubles and trinkets -- apparently having married and murdered their way into an incredible inheritence, their fabled manor being known as Saltburn.</B>")
@@ -206,20 +208,22 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 100 LOCKE PATTERN BOLTERS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 10 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.</font></b></span>")
 					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 100 LOCKE PATTERN BOLTERS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 10 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.")
 					to_world("<B>You hear that The Adeptus Mechanicus has been facing difficulty in the city, that the Magos Explorator at the hands of heretical sabotage cannot fulfill the tithe. 100 locke bolters are needed for the crusade effort, the AdMech has failed the Lord Militant General. Despite nearly making the tithe quota the Void Captain demands the entirety of the order is met by any means necessary.</B>")
+					//2nd tithe
+					sleep(600*3) // 3 mins
+					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. HOUSE VANE ARCHEOTECH SHIPMENT MISSING. THE SAFE DELIVERY OF A HOLY ARCHEOTECH ARTIFACT TO THE MILITANT GENERAL IS NOT OPTIONAL -- VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO FULFILL THE REQUEST OF THE MILITANT GENERAL WILL RESULT IN SUMMARY ACTION.</font></b></span>")
+					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. HOUSE VANE ARCHEOTECH SHIPMENT MISSING. THE SAFE DELIVERY OF A HOLY ARCHEOTECH ARTIFACT TO THE MILITANT GENERAL IS NOT OPTIONAL -- VOIDSHIP DEPARTURE IMMINENT FAILURE TO FULFILL THE REQUEST OF THE MILITANT GENERAL WILL RESULT IN SUMMARY ACTION.")
+					to_world("<B>You hear that House Vane is indebted to the Lord Militant General, that the Lord Trader in favor owes the crusade a holy relic which was stolen by heretics, they have little time to find a replacement. Despite previous contributions to the tithe -- the Void Captain will not depart without the archeotech owed by the Rogue Trader.</B>")
 					sleep(600*30)
 					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 100 LOCKE PATTERN BOLTERS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 10 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.</font></b></span>")
 					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. MECHANICUS TITHE COLLECTION INSUFFICIENT. ORDER OF 100 LOCKE PATTERN BOLTERS -- YOU HAVE FAILED TO MEET TITHE QUOTA BY 5 UNITS. THE ADMINISTRATUM WILL ALLOW THE DELIVERY OF ALTERNATIVE PATTERNS IN THEIR ABSENCE. VOIDSHIP DEPARTURE IMMINENT FAILURE TO MEET TITHE QUOTA WILL RESULT IN HERETICUS JUDGEMENT.")
 					to_world("<B>You hear that the tithe vessel has been in dock for days awaiting it's final deliveries for the Holy Crusade Force -- rumours are the Lord Militant General had invested many millions of thrones into the growth of the colony world, you would imagine his anger at such an investment going so poorly.</B>")
 					// 2nd tithe don't mix these up
-					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. HOUSE VANE ARCHEOTECH SHIPMENT MISSING. THE SAFE DELIVERY OF A HOLY ARCHEOTECH ARTIFACT TO THE MILITANT GENERAL IS NOT OPTIONAL -- VOIDSHIP DEPARTURE IN TWO DAYS(30 in-game minutes) FAILURE TO FULFILL THE REQUEST OF THE MILITANT GENERAL WILL RESULT IN SUMMARY ACTION.</font></b></span>")
-					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. HOUSE VANE ARCHEOTECH SHIPMENT MISSING. THE SAFE DELIVERY OF A HOLY ARCHEOTECH ARTIFACT TO THE MILITANT GENERAL IS NOT OPTIONAL -- VOIDSHIP DEPARTURE IMMINENT FAILURE TO FULFILL THE REQUEST OF THE MILITANT GENERAL WILL RESULT IN SUMMARY ACTION.")
-					to_world("<B>You hear that House Vane is indebted to the Lord Militant General, that the Lord Trader in favor owes the crusade a holy relic which was stolen by heretics, they have little time to find a replacement. Despite previous contributions to the tithe -- the Void Captain will not depart without the archeotech owed by the Rogue Trader.</B>")
-					sleep(600*30)
+					sleep(600*3)
 					to_chat(U,"<span class='goodmood'><b><font size=3> WARNING. HOUSE VANE ARCHEOTECH SHIPMENT MISSING. THE SAFE DELIVERY OF A HOLY ARCHEOTECH ARTIFACT TO THE MILITANT GENERAL IS NOT OPTIONAL -- VOIDSHIP DEPARTURE IMMINENT FAILURE TO FULFILL THE REQUEST OF THE MILITANT GENERAL WILL RESULT IN SUMMARY ACTION</font></b></span>")
 					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. HOUSE VANE ARCHEOTECH SHIPMENT MISSING. THE SAFE DELIVERY OF A HOLY ARCHEOTECH ARTIFACT TO THE MILITANT GENERAL IS NOT OPTIONAL -- VOIDSHIP DEPARTURE IMMINENT FAILURE TO FULFILL THE REQUEST OF THE MILITANT GENERAL WILL RESULT IN SUMMARY ACTION.")
 					to_world("<B>You hear that the tithe vessel has been in dock for days awaiting it's final deliveries for the Holy Crusade Force -- rumours are the Lord Militant General had invested many millions of thrones into the growth of the colony world, you would imagine his anger at such an investment going so poorly.</B>")
 					sleep(600*10)
-					to_world("<B>You have heard tales.... of RATMA. The rat god of the sewers. He who will make the world ratling...</B>")					
+					to_world("<B>You have heard tales.... of RATMA. The rat god of the sewers. He who will make the world ratling...</B>")
 			else
 				to_chat(U,"<span class='danger'><b><font size=4>THE MECHANICUS & HOUSE VANE</font></b></span>")
 				new /obj/item/stack/thrones/ten(src.loc)
@@ -263,7 +267,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 					message_admins("[usr.key] [usr.name] HAS RECEIVED OBJECTIVE: WARNING. HOUSE VANE ARCHEOTECH SHIPMENT MISSING. THE SAFE DELIVERY OF A HOLY ARCHEOTECH ARTIFACT TO THE MILITANT GENERAL IS NOT OPTIONAL -- VOIDSHIP DEPARTURE IMMINENT FAILURE TO FULFILL THE REQUEST OF THE MILITANT GENERAL WILL RESULT IN SUMMARY ACTION.")
 					to_world("<B>You hear that the tithe vessel has been in dock for days awaiting it's final deliveries for the Holy Crusade Force -- rumours are the Lord Militant General had invested many millions of thrones into the growth of the colony world, you would imagine his anger at such an investment going so poorly.</B>")
 					sleep(600*10)
-					to_world("<B>You have heard tales.... of RATMA. The rat god of the sewers. He who will make the world ratling...</B>")		
+					to_world("<B>You have heard tales.... of RATMA. The rat god of the sewers. He who will make the world ratling...</B>")
 
 
 /mob/living/carbon/human/proc/servantclass()
@@ -490,3 +494,46 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		)
 
 */
+
+/datum/job/royalguard
+	title = "PDF Captain"
+	supervisors = "The De Burgen Family, Inquisiton and Militarum High Command."
+	department_flag = COM
+	total_positions = 1
+	spawn_positions = 1
+	head_position = 1
+	selection_color = "#23742a"
+	department_flag = SEC
+	req_admin_notify = TRUE
+	social_class = SOCIAL_CLASS_MAX
+	announced = 0
+	access = list(20, 331, access_ai_upload, access_heads, access_security, access_guard_common, access_magi, access_all_personal_lockers, access_village, access_guard_armory, access_armory) 			//See get_access()
+	minimal_access = list(20, 331, access_ai_upload, access_security, access_guard_common, access_magi, access_all_personal_lockers, access_village, access_guard_armory, access_armory)
+	minimal_player_age = 19
+	ideal_character_age = 40
+	outfit_type = /decl/hierarchy/outfit/job/royalguard
+	alt_titles = null
+	latejoin_at_spawnpoints = 1
+	auto_rifle_skill = 10
+	semi_rifle_skill = 10
+	sniper_skill = 10
+	shotgun_skill = 10
+	lmg_skill = 10
+	smg_skill = 10
+	cultist_chance = 4
+
+	equip(var/mob/living/carbon/human/H)
+		var/current_name = H.real_name
+		..()
+		H.fully_replace_character_name("Captain [current_name]")
+		H.add_stats(rand(15,17), rand(16,18), rand(18,19), rand(10,15)) //still not as good as a arbites
+		H.add_skills(rand(10,11),rand(9,10),rand(3,5),5,rand(2,4)) //melee, ranged, med, eng, surgery
+		H.assign_random_quirk()
+		H.witchblood()
+		H.get_idcard()?.access = list(20, 331, access_ai_upload, access_heads, access_security, access_guard_common, access_magi, access_all_personal_lockers, access_village, access_guard_armory, access_armory)
+		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC)
+		H.warfare_language_shit(LANGUAGE_HIGH_GOTHIC)
+		H.adjustStaminaLoss(-INFINITY)
+		H.set_trait(new/datum/trait/death_tolerant())
+		H.warfare_faction = IMPERIUM
+		to_chat(H, "<span class='notice'><b><font size=3>You are the senior officer of the Messian PDF serving as the personal military might of the Planetary Governor and De Burgen family, while you owe allegiance to The Astra Militarum, your absolute loyalty remains with the House of De Burgen. The relative local politics of Messina make it unclear as to the chain of command when dealing with the Militarum and it is safe to say that you are officially in charge of planetary defense, though in the presence of Inquisitors, Militarum High Command or worse local laws tend to crumble under their political weight.</font></b></span>")

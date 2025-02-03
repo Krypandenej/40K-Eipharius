@@ -54,6 +54,7 @@
 
 /datum/job/ig/guardsman
 	title = "Imperial Guardsman"
+	supervisors = "The Captain or Commissar"
 	total_positions = 1
 	spawn_positions = 1
 	social_class = SOCIAL_CLASS_MED //Guards are at least pretty respected in imperial society
@@ -112,9 +113,9 @@
 //Whiteshield
 
 /datum/job/ig/whiteshield
-	title = "Imperial Guard Recruit"
-	total_positions = 1
-	spawn_positions = 1
+	title = "PDF Trooper"
+	total_positions = 0
+	spawn_positions = 0
 	open_when_dead = FALSE
 	social_class = SOCIAL_CLASS_MED //Guards are at least pretty respected in imperial society
 	outfit_type = /decl/hierarchy/outfit/job/whiteshield
@@ -147,8 +148,9 @@
 
 /datum/job/ig/guardsman/sharpshooter // can i be fucked renaming every /sharpshooter into /spec? no. remember to just call /sharpshooter/[regiment] instead
 	title = "Imperial Guard Specialist"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
+	supervisors = "The Captain or Commissar"
 	open_when_dead = FALSE
 	outfit_type = /decl/hierarchy/outfit/job/sharpshooter
 	auto_rifle_skill = 10
@@ -210,8 +212,8 @@ datum/job/ig/bullgryn
 	title = "Bullgryn"
 	social_class = SOCIAL_CLASS_MED //is it lore accurate? no, does it make sense to have a bullgryn here? also no
 	selection_color = "#33813A"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "Da Emprah. Da Commesar, and da little on's!"
 	outfit_type = /decl/hierarchy/outfit/job/bullgryn
 	latejoin_at_spawnpoints = TRUE
@@ -224,7 +226,7 @@ datum/job/ig/bullgryn
 	//theres gunna be some redundencies here but I do not careeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 		H.warfare_faction = IMPERIUM
 		..()
-		H.add_stats(rand(20,30), rand(17,19), rand(15,18), rand (2,5)) //bullgryn are stronger and quicker than normal ogryn due to their advanced training
+		H.add_stats(rand(20,25), rand(17,19), rand(15,18), rand (2,5)) //bullgryn are stronger and quicker than normal ogryn due to their advanced training
 		H.add_skills(rand(10,15),1,1,4,1) //melee, ranged, med, eng, surgery
 		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC)
 		H.set_trait(new/datum/trait/death_tolerant())
@@ -237,6 +239,7 @@ datum/job/ig/bullgryn
 	total_positions = 1
 	spawn_positions = 1
 	open_when_dead = FALSE
+	supervisors = "The Captain or Commissar"
 	outfit_type = /decl/hierarchy/outfit/job/sniper
 	auto_rifle_skill = 7
 	semi_rifle_skill = 9
@@ -270,7 +273,7 @@ datum/job/ig/bullgryn
 			/mob/living/carbon/human/proc/veteranclass,
 			/mob/living/carbon/human/proc/ideology,
 		)
-		to_chat(H, "<span class='notice'><b><font size=3>   You are an Imperial Guardsmen selected personally by the Lord Trader to serve as the primary source of manpower and security within their retinue, your services go beyond the wielding of your lasgun and may involve tasks varying from hard labour, exploration and peacekeeping -- up until the point in which it is decided you must lay down your life to protect the citizens of The Imperium. </font></b></span>")
+		to_chat(H, "<span class='notice'><b><font size=3>   You are an Imperial Guardsmen selected personally to serve the Lord Governor as an instructor for PDF in Marksmanship, to serve as the primary source of manpower and security within their personal retinue, your services go beyond the wielding of your lasgun and may involve tasks varying from scouting, exploration and assassination -- up until the point in which it is decided you must lay down your life to protect the citizens of The Imperium. </font></b></span>")
 		to_chat(H, "<span class='notice'><b><font size=3>   The Astra Militarum, also known as the Imperial Guard in colloquial Low Gothic, is the largest coherent fighting force in the galaxy. They serve as the Imperium of Man's primary combat force and first line of defence from the myriad threats which endanger the existence of the Human race in the 41st Millennium. </font></b></span>")
 		to_chat(H, "<span class='notice'><b><font size=3>   There is no universal uniform or regimental command hierarchy in the Astra Militarum, although it is compulsory for every regiment to have at least one commissar to maintain the discipline and morale of the troops while watching for any signs of corruption or heretical taint in the ranks. </font></b></span>")
 		if(title == "Krieg Marksman")
@@ -290,15 +293,17 @@ datum/job/ig/bullgryn
 
 // Sergeants
 
+
+
 /datum/job/ig/sergeant
 	title = "Sergeant"
-	supervisors = "The Planetary Governor"
+	supervisors = "The Captain or Commissar"
 	total_positions = 1
 	spawn_positions = 1
 	open_when_dead = FALSE
 	selection_color = "#23742a"
 	department_flag = SEC
-	cultist_chance = 6
+	cultist_chance = 3
 	outfit_type = /decl/hierarchy/outfit/job/sergeant
 	alt_titles = list(
 		"Cadian Sergeant" = /decl/hierarchy/outfit/job/sergeant,
@@ -364,6 +369,7 @@ datum/job/ig/bullgryn
 /datum/job/ig/medicae
 	title = "Combat Medicae"
 	department = "Medical"
+	supervisors = "The Captain or Commissar"
 	department_flag = SEC
 	social_class = SOCIAL_CLASS_MED
 	can_be_in_squad = TRUE
@@ -430,7 +436,7 @@ datum/job/ig/bullgryn
 					to_chat(H, "<span class='notice'><b><font size=3>You are a Combat Medicae. Your purpose is to both fight the enemies of the Imperium and to triage the wounded and ensure they survive long enough to be seen by a Sister Hospitaller. You have medical training but little surgical training so avoid field surgery unless absolutely necessary</font></b></span>")
 		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC)
 		H.adjustStaminaLoss(-INFINITY)
-
+/*
 /datum/job/kasrkin
 	title = "Kasrkin"
 	supervisors = "The Governor and The Inquisition."
@@ -472,14 +478,14 @@ datum/job/ig/bullgryn
 		H.warfare_faction = IMPERIUM
 //		H.vice = null //THE VETERAN HAS SEEN SOME SHIT BRO
 		to_chat(H, "<span class='notice'><b><font size=3>You are a Kasrkin serving as an agent to the Governor on behalf of your regiment, while expected to follow orders you ultimately serve the memory of Cadia to whom you are loyal above all else. You unlike most veterans of the Astra Militarum are likely experienced and knowledgeable enough about Chaos to not be drinking the kool aid the Imperium gives to it's soldiers and instead serve because of your true understanding of what The God Emperor and all humanity stand against...</font></b></span>")
-
+*/
 
 // Commissar
 
 /datum/job/ig/commissar
 	title = "Commissar"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	head_position = 1
 	selection_color = "#23742a"
 	department_flag = SEC
@@ -572,14 +578,14 @@ datum/job/ig/bullgryn
 	switch(classchoice)
 
 		if("ROLL THE DICE!")
-			if(prob(30))
+			if(prob(20))
 				to_chat(U,"<span class='danger'><b><font size=4>THE VETERAN</font></b></span>")
 				to_chat(U,"<span class='goodmood'><b><font size=3>A veteran of many campaigns, you've experienced the horrors of the warp and the alien.</font></b></span>")
 				U.add_stats(rand(16,18), rand(16,18), rand(13,17), rand (12,16))
 				new /obj/item/gun/projectile/bolter_pistol(src.loc)
 				new /obj/item/clothing/accessory/medal/silver/Administratum(src.loc)
 
-			else if(prob(8))
+			else if(prob(6))
 				to_chat(U,"<span class='danger'><b><font size=4>THE TRAITOR</font></b></span>")
 				to_chat(U,"<span class='goodmood'><b><font size=3>You are a traitor to the Imperium and for reasons unknown to you now, shall be it's destruction. Praise the hivemind/cult/cogitae!</font></b></span>")
 				U.add_stats(rand(13,17), rand(16,18), rand(16,18), rand (12,20))
@@ -588,34 +594,18 @@ datum/job/ig/bullgryn
 				var/datum/heretic_deity/deity = GOD(U.client.prefs.cult)
 					deity.add_cultist(U)
 				new /obj/item/stack/thrones3/twenty(src.loc)
-				new /obj/item/stack/thrones3/twenty(src.loc)
-				new /obj/item/clothing/mask/smokable/cigarette/cigar(src.loc)
-				if(prob(15))
-					new /obj/item/clothing/suit/armor/hjacket(src.loc)
-				else
-					new /obj/item/clothing/suit/armor/towntrench(src.loc)
 				if(prob(5))
 					new /obj/item/clothing/accessory/medal/bronze/Administratum(src.loc)
 				if(prob(10))
 					new /obj/item/device/multitool/hacktool(src.loc)
-					new /obj/item/clothing/mask/smokable/cigarette/cigar(src.loc)
-					new /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey(src.loc)
 			else
 				to_chat(U,"<span class='danger'><b><font size=4>THE FORSAKEN</font></b></span>")
 				U.add_stats(rand(15,18), rand(15,18), rand(15,18), rand (12,16))
 				new /obj/item/stack/thrones3/twenty(src.loc)
-				new /obj/item/stack/thrones3/twenty(src.loc)
-				new /obj/item/clothing/mask/smokable/cigarette/cigar(src.loc)
-				if(prob(35))
-					new /obj/item/clothing/suit/armor/hjacket(src.loc)
-				else
-					new /obj/item/clothing/suit/armor/towntrench(src.loc)
 				if(prob(15))
 					new /obj/item/clothing/accessory/medal/bronze/Administratum(src.loc)
 				if(prob(30))
 					new /obj/item/device/multitool/hacktool(src.loc)
-					new /obj/item/clothing/mask/smokable/cigarette/cigar(src.loc)
-					new /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey(src.loc)
 				to_chat(U,"<span class='goodmood'><b><font size=3>You are one of many untold trillions of Guardsmen taken from your homeworld and pressed into service to the meatgrinder that is the Astra Militarum. As a result of the mind numbing horrors of war, you have taken to... interesting vices to survive your many years of service.</font></b></span>")
 
 
@@ -660,41 +650,24 @@ datum/job/ig/bullgryn
 				if(prob(50))
 					new /obj/item/device/radio/headset/blue_team/alpha(src.loc)
 				if(prob(10))
-					new /obj/item/storage/pill_bottle/happy(src.loc)
-				if(prob(10))
-					new /obj/item/clothing/suit/armor/ranger2(src.loc)
-				if(prob(10))
-					new /obj/item/clothing/suit/armor/towntrench(src.loc)
-				if(prob(10))
 					new /obj/item/clothing/accessory/medal/silver/Administratum(src.loc)
 					new /obj/item/clothing/accessory/medal/bronze/Administratum(src.loc)
 				if(prob(15))
 					new /obj/item/device/multitool/hacktool(src.loc)
 				if(prob(15))
-					new /obj/item/plastique(src.loc)
-				if(prob(15))
-					new /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey(src.loc)
+					new /obj/item/grenade/frag/high_yield/krak/detpack(src.loc)
 			else
 				to_chat(U,"<span class='danger'><b><font size=4>THE SURVIVOR</font></b></span>")
 				to_chat(U,"<span class='goodmood'><b><font size=3>You are one of many untold trillions of Guardsmen taken from your homeworld and pressed into service to the meatgrinder that is the Astra Militarum. As a result of the mind numbing horrors of war, you have taken to... interesting vices to survive your many years of service.</font></b></span>")
 				new /obj/item/stack/thrones2/twenty(src.loc)
-				new /obj/item/stack/thrones3/twenty(src.loc)
 				new /obj/item/clothing/mask/smokable/cigarette/cigar(src.loc)
-				if(prob(40))
-					new /obj/item/storage/pill_bottle/happy(src.loc)
-				if(prob(10))
-					new /obj/item/clothing/suit/armor/ranger2(src.loc)
-				if(prob(10))
-					new /obj/item/clothing/suit/armor/towntrench(src.loc)
 				if(prob(30))
 					new /obj/item/clothing/accessory/medal/silver/Administratum(src.loc)
 					new /obj/item/clothing/accessory/medal/bronze/Administratum(src.loc)
 				if(prob(45))
 					new /obj/item/device/multitool/hacktool(src.loc)
 				if(prob(45))
-					new /obj/item/plastique(src.loc)
-				if(prob(35))
-					new /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey(src.loc)
+					new /obj/item/grenade/frag/high_yield/krak/detpack(src.loc)
 
 
 
@@ -765,12 +738,12 @@ datum/job/ig/bullgryn
 /decl/hierarchy/outfit/job/whiteshield
 	name = OUTFIT_JOB_NAME("Imperial Guard Whiteshield")
 	uniform = /obj/item/clothing/under/cadian_uniform
-	suit = /obj/item/clothing/suit/armor/whiteshield
+	suit = /obj/item/clothing/suit/armor/whiteshield/pdf
 	back = /obj/item/storage/backpack/satchel/heavy
 	belt = /obj/item/device/flashlight/lantern
 	gloves = /obj/item/clothing/gloves/combat/cadian
 	shoes = /obj/item/clothing/shoes/jackboots/cadian
-	head = /obj/item/clothing/head/helmet/whiteshield
+	head = /obj/item/clothing/head/helmet/whiteshield/pdf
 	mask = null
 	glasses = null
 	l_pocket = /obj/item/storage/box/ifak

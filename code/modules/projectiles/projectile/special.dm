@@ -135,7 +135,7 @@
 /obj/item/projectile/flamer/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		if(!istype(H.wear_suit, /obj/item/clothing/suit/fire))
+		if(!istype(H.wear_suit, /obj/item/clothing/suit/fire) && !istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) && !istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos))
 			H.adjust_fire_stacks(10) //note left by walker, any more than 10 is impossibly OP
 			H.IgniteMob()
 		new /obj/flamer_fire(H.loc, 12, 10, "red", 1)
@@ -153,7 +153,7 @@
 /obj/item/projectile/flamer/salamander/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		if(!istype(H.wear_suit, /obj/item/clothing/suit/fire))
+		if(!istype(H.wear_suit, /obj/item/clothing/suit/fire) && !istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) && !istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos))
 			H.adjust_fire_stacks(5) //note left by walker, any more than 10 is impossibly OP
 			H.IgniteMob()
 		new /obj/flamer_fire(H.loc, 12, 10, "blue", 1)
@@ -170,9 +170,10 @@
 /obj/item/projectile/warpfire/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		if(!istype(H.wear_suit, /obj/item/clothing/suit/wizrobe/psypurple))
+		if(!istype(H.wear_suit, /obj/item/clothing/suit/wizrobe/psypurple) && !istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) && !istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos))
 			H.adjust_fire_stacks(10)
 			H.IgniteMob()
+
 		new /obj/warpfire(H.loc, 16, 12, "green", 3)
 
 
@@ -307,10 +308,12 @@
 	if(istype(M))
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			if(istype(H.wear_suit, /obj/item/clothing/suit/fire) || istype(H.wear_suit, /obj/item/clothing/suit/armor/astartes) || istype(H.wear_suit, /obj/item/clothing/suit/sisterofbattle) ||  istype(H.wear_suit, /obj/item/clothing/suit/wizrobe/psypurple) || istype(H.wear_suit, /obj/item/clothing/suit/armor/ordohereticus))
-				H.show_message(text("Your suit protects you from the flames."),1)
-				H.adjustFireLoss(burnlevel*0.25) //Does small burn damage to a person wearing one of the suits.
-				return
+			if(istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/ruststalker))
+				H.show_message(text("Your suit protects you from the flames."), 1)
+				H.adjustFireLoss(rand(0 ,burnlevel*0.25)) //Does small burn damage to a person wearing one of the suits.
+			if(istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) || istype(H.wear_suit, /obj/item/clothing/suit/armor/astartes) || istype(H.wear_suit, /obj/item/clothing/suit/sisterofbattle) || istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos) || istype(H.wear_suit, /obj/item/clothing/suit/armor/ordohereticus)  || istype(H.wear_suit, /obj/item/clothing/suit/fire) || istype(H.wear_suit, /obj/item/clothing/suit/armor/catachan/flamerspecialist))
+				H.show_message(text("Your suit protects you from the flames."), 1)
+				H.adjustFireLoss(0) //Does no burn damage
 		M.adjust_fire_stacks(burnlevel) //Make it possible to light them on fire later.
 		if (prob(firelevel + 2*M.fire_stacks)) //the more soaked in fire you are, the likelier to be ignited
 			M.IgniteMob()
@@ -348,9 +351,12 @@
 	for(var/mob/living/I in loc)
 		if(istype(I,/mob/living/carbon/human))
 			var/mob/living/carbon/human/M = I
-			if(istype(M.wear_suit, /obj/item/clothing/suit/fire) || istype(M.wear_suit, /obj/item/clothing/suit/armor/astartes) || istype(M.wear_suit, /obj/item/clothing/suit/sisterofbattle) || istype(M.wear_suit || istype(M.wear_suit, /obj/item/clothing/suit/sisterofbattle) , /obj/item/clothing/suit/armor/ordohereticus)  || istype(M.wear_suit, /obj/item/clothing/suit/storage/hooded/ruststalker) || istype(M.wear_suit, /obj/item/clothing/suit/armor/catachan/flamerspecialist))
+			if(istype(M.wear_suit, /obj/item/clothing/suit/storage/hooded/ruststalker))
 				M.show_message(text("Your suit protects you from the flames."), 1)
 				M.adjustFireLoss(rand(0 ,burnlevel*0.25)) //Does small burn damage to a person wearing one of the suits.
+			if(istype(M.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) || istype(M.wear_suit, /obj/item/clothing/suit/armor/astartes) || istype(M.wear_suit, /obj/item/clothing/suit/sisterofbattle) || istype(M.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos) || istype(M.wear_suit, /obj/item/clothing/suit/armor/ordohereticus)  || istype(M.wear_suit, /obj/item/clothing/suit/fire) || istype(M.wear_suit, /obj/item/clothing/suit/armor/catachan/flamerspecialist))
+				M.show_message(text("Your suit protects you from the flames."), 1)
+				M.adjustFireLoss(0) //Does no burn damage
 				continue
 		I.adjust_fire_stacks(burnlevel) //If i stand in the fire i deserve all of this. Also Napalm stacks quickly.
 		if(prob(firelevel)) I.IgniteMob()
@@ -419,6 +425,9 @@
 			if(istype(H.wear_suit, /obj/item/clothing/suit/wizrobe/psypurple))
 				H.show_message(text("Your Psyker powers protect you from the flames."),1)
 				return
+			if(istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) || istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos))
+				M.show_message(text("Your suit protects you from the flames."), 1)
+				M.adjustFireLoss(0) //Does no burn damage
 		M.adjust_fire_stacks(burnlevel) //Make it possible to light them on fire later.
 		if (prob(firelevel + 2*M.fire_stacks)) //the more soaked in fire you are, the likelier to be ignited
 			M.IgniteMob()
@@ -459,6 +468,9 @@
 			if(istype(M.wear_suit, /obj/item/clothing/suit/wizrobe/psypurple))
 				M.show_message(text("Your Psyker powers protect you from the flames."),1)
 				return
+			if(istype(M.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) || istype(M.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos))
+				M.show_message(text("Your suit protects you from the flames."), 1)
+				M.adjustFireLoss(0) //Does no burn damage
 		I.adjust_fire_stacks(burnlevel) //If i stand in the fire I deserve all of this. Also warpfire stacks quickly.
 		if(prob(firelevel)) I.IgniteMob()
 		I.show_message(text("<span class='warning'>You are burned!</span>"),1)
@@ -475,6 +487,9 @@
 				H.show_message(text("Your psyker powers protect you from the flames."),1)
 				H.adjustFireLoss(burnlevel*0.25) //Does small burn damage to a person wearing one of the suits.
 				return
+			if(istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/archeotech) || istype(H.wear_suit, /obj/item/clothing/suit/storage/hooded/inquisitor/chronos))
+				M.show_message(text("Your suit protects you from the flames."), 1)
+				M.adjustFireLoss(0) //Does no burn damage
 		M.adjust_fire_stacks(burnlevel) //Make it possible to light them on fire later.
 		if (prob(firelevel + 2*M.fire_stacks)) //the more soaked in fire you are, the likelier to be ignited
 			M.IgniteMob()
@@ -672,3 +687,132 @@
 			W.dismantle_wall(1)
 			explosion(location, -1, -1, 1, 2)
 			visible_message("<span class='danger'>The [src] falls apart unders its own weight!</span>")*/
+
+
+/obj/item/projectile/archeotech //Categorisation object.
+	name = "Archeotech Shot"
+	icon_state = "ion"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	damage = 0
+	damage_type = BURN
+	nodamage = 1
+	check_armour = "energy"
+
+/obj/item/projectile/archeotech/explosion
+	name = "Explosive Archeotech Shot"
+	icon_state = "ion"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	damage = 5
+	armor_penetration = 60
+	damage_type = BURN
+	check_armour = "energy"
+
+/obj/item/projectile/archeotech/explosion/on_hit(var/atom/target, var/blocked = 0)
+	explosion(target, 1, 2, 3)
+	..()
+
+/obj/item/projectile/archeotech/anticausality
+	name = "Anticausal Archeotech Shot"
+	icon_state = "bluespace"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	damage = 5
+	armor_penetration = 60
+	damage_type = BURN
+	check_armour = "energy"
+
+/obj/item/projectile/archeotech/anticausality/on_hit(var/atom/target, var/blocked = 0)
+	if(ismob(target))
+		var/mobloc = get_turf(target.loc)
+		var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
+		var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
+		animation.SetName("water")
+		animation.set_density(0)
+		animation.anchored = 1
+		animation.icon = 'icons/mob/mob.dmi'
+		animation.layer = 5
+		animation.master = holder
+		visible_message("<span class='danger'>[target] vanishes in a flow of anticausal particles!</span>")
+		animation.icon_state = "liquify"
+		flick("liquify",animation)
+		qdel(target)
+	if(istype(target, /turf/simulated/wall))
+		var/turf/simulated/wall/W = target
+		explosion(W, 1, 1, 1)
+		qdel(W)
+	if(istype(target, /atom/movable/lighting_overlay))
+		var/atom/movable/lighting_overlay/L = target
+		explosion(L, 1, 1, 1)
+	if(istype(target, /mob/living/simple_animal))
+		var/mob/living/simple_animal/S = target
+		qdel(S)
+	else
+		if(!isturf(target))
+			qdel(target)
+			visible_message("<span class='danger'>[target] vanishes in a flow of anticausal particles!</span>")
+		return
+	..()
+
+/obj/item/projectile/archeotech/capture
+	name = "Capture Archeotech Shot"
+	icon_state = "electricity2"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	damage = 0
+	armor_penetration = 60
+	damage_type = BURN
+	check_armour = "energy"
+
+/obj/item/projectile/archeotech/capture/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target
+		var/obj/item/handcuffs/archeotech/cuffs = new()
+		cuffs.forceMove(H)
+		H.handcuffed = cuffs
+		H.update_inv_handcuffed()
+		H.visible_message("Beams of light form around \the [H]'s hands!")
+		H.Weaken(5)
+	if(istype(target, /mob/living/simple_animal))
+		var/mob/living/simple_animal/S = target
+		S.in_stasis = 1
+	..()
+
+/obj/item/handcuffs/archeotech
+	name = "Energy Cuffs"
+	desc = "Strange beams of energy which restrain your hands."
+	breakouttime = 300 //30 seconds
+
+/obj/item/handcuffs/archeotech/dropped(var/mob/user)
+	..()
+	qdel(src)
+
+/obj/item/projectile/archeotech/stun
+	name = "Stun Archeotech Shot"
+	icon_state = "spark"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	damage = 0
+	armor_penetration = 60
+	damage_type = BURN
+	check_armour = "energy"
+
+/obj/item/projectile/archeotech/stun/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target
+		H.Weaken(15)
+		H.Stun(15)
+	..()
+
+/obj/item/projectile/archeotech/kill
+	name = "Lethal Archeotech Shot"
+	icon_state = "heavylaser"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	damage = 750 //Enough to instakill simplemobs.
+	armor_penetration = 80
+	damage_type = BURN
+	check_armour = "energy"
+	sharp = 1
+
+/*/obj/item/projectile/archeotech/kill/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /mob/living/simple_animal))
+		var/mob/living/simple_animal/S = target
+		S.health = 0
+		S.visible_message("[S] collapses to the ground, dead!")
+	..()*/ //WIP

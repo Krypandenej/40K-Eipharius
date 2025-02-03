@@ -466,6 +466,23 @@
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	speed = 1.2
 
+/mob/living/simple_animal/hostile/minionhorror
+	name = "???"
+	desc = "GOD EMPEROR NO!"
+	icon = 'icons/mob/Demon.dmi'
+	speak_chance = 0
+	icon_state = "minion_1"
+	icon_living = "minion_1"
+	icon_dead = "goliath_dead"
+	health = 350
+	maxHealth = 350
+	melee_damage_lower = 18
+	melee_damage_upper = 28
+	attacktext = "bites"
+	attack_sound = 'sound/weapons/bite.ogg'
+	speed = 1.4
+	faction = "Demon"
+
 /mob/living/simple_animal/hostile/flesh
 	name = "Headcrab"
 	desc = "A disgusting flesh creature formed out of flesh vines that have occupied a human head..."
@@ -490,6 +507,7 @@
 	icon_state = "example"
 	icon_living = "example"
 	icon_dead = "torso_lying_2"
+	faction = "Demon"
 	health = 325
 	maxHealth = 325
 	melee_damage_lower = 15
@@ -533,6 +551,31 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 1.5
 	faction = "Demon"
+
+/mob/living/simple_animal/hostile/flesh/abomination/tzee
+	name = "Abomination"
+	desc = "A disgusting flesh creature formed out of flesh vines that have occupied a human corpse..."
+	icon = 'icons/map_project/port/components_large.dmi'
+	speak_chance = 0
+	icon_state = "preview"
+	icon_living = "preview"
+	icon_dead = "torso_lying_2"
+	health = 225
+	maxHealth = 225
+	melee_damage_lower = 19
+	melee_damage_upper = 29
+	attacktext = "bites"
+	attack_sound = 'sound/weapons/bite.ogg'
+	speed = 1.7
+	faction = "Chaos"
+
+/mob/living/simple_animal/hostile/flesh/abomination/tzee/Initialize()
+	. =..()
+	if(prob(40))
+		explosion(src.loc, -1, 2, 3, 4)
+	else
+		return
+
 
 /mob/living/simple_animal/hostile/flesh/abomination
 	name = "Abomination"

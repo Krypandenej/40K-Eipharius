@@ -47,7 +47,7 @@
 	id_type = null
 	pda_type = null
 	pda_slot = null
-	l_ear = /obj/item/device/radio/headset/heads/rt
+	l_ear = /obj/item/device/radio/headset/heads/cmo
 	r_ear = null
 	back = /obj/item/storage/backpack/satchel/warfare
 	shoes = /obj/item/clothing/shoes/jackboots

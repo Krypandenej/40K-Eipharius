@@ -115,7 +115,7 @@
 /obj/effect/dummy/spell_jaunt/bullet_act(blah)
 	return
 
-/*/spell/targeted/necron_jaunt
+/spell/targeted/necron_jaunt
 	name = "Dimensional Shift"
 	desc = "Slip between the boundaries of dimensions, and become intangible."
 	feedback = "DS"
@@ -133,7 +133,7 @@
 
 /spell/targeted/necron_jaunt/cast(list/targets)
 	for(var/mob/living/target in targets)
-		if(target.jaunting = 0)
+		if(target.jaunting == 0)
 			target.transforming = 1 //protects the mob from being transformed (replaced) midjaunt and getting stuck in bluespace
 			if(target.buckled)
 				target.buckled.unbuckle_mob()
@@ -149,13 +149,16 @@
 				animation.master = holder
 				target.ExtinguishMob()
 				if(target.buckled)
-				target.buckled = null
+					target.buckled = null
 				jaunt_disappear(animation, target)
 				target.loc = holder
 				target.transforming=0 //mob is safely inside holder now, no need for protection.
 				jaunt_steam(mobloc)
 				target.jaunting = 1
 		else
+			var/mobloc = get_turf(target.loc)
+			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
+			var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
 			mobloc = holder.last_valid_turf
 			animation.loc = mobloc
 			jaunt_steam(mobloc)
@@ -188,4 +191,4 @@
 /spell/targeted/necron_jaunt/proc/jaunt_steam(var/mobloc)
 	var/datum/effect/effect/system/steam_spread/steam = new /datum/effect/effect/system/steam_spread()
 	steam.set_up(10, 0, mobloc)
-	steam.start()*/
+	steam.start()

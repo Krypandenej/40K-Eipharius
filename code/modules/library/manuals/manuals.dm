@@ -287,6 +287,9 @@
 				<h1>Rites of The Grandfather</h1>
 				The sacred rites and practices of pestilence.
 
+				<h2>Secret Key</h2>
+				<h3>Gain a key in exchange for Strange Alloy / Diamond which can unlock the door House of Sondar...</h3>
+
 				<h2>Secret Channel</h2>
 				<h3>Alter your radio-headset to use a warp-touched radio channel only accessible to the followers of Khorne and Nurgle. Destroys the original</h3>
 
@@ -421,6 +424,9 @@
 				<h1>Rites of The Changer Of Ways</h1>
 				The sacred rites and practices of Change.
 
+				<h2>Secret Key</h2>
+				<h3>Gain a key in exchange for Strange Alloy / Diamond which can unlock the door House of Sondar...</h3>
+
 				<h2>Secret Channel</h2>
 				<h3>Alter your radio-headset to use a warp-touched radio channel only accessible to the followers of Tzeentch and Slaanesh. Destroys the original</h3>
 
@@ -435,6 +441,10 @@
 				<h2>Warp Lens:</h2>
 				<h3>A discreet yet powerful magic weapon, perfect for self defense.</h3>
 				Lasgun powercell offered on a rune of Tzeentch.
+
+				<h2>Skinless Rite:</h2>
+				<h3>Convert a shambling corpse into an undead monstrosity.</h3>
+				Place a candle near a corpse and make it your servant.
 
 				<h2>Clothing Rite:</h2>
 				<h3>Summon the garb of Tzeentch, either magical armor(emerald), or one of four masks(ruby, sapphire, quartz or topaz) offered onto the rune.</h3>
@@ -469,6 +479,9 @@
 
 				<h1>Rites of The Dark Prince</h1>
 				The sacred rites and practices of excess.
+
+				<h2>Secret Key</h2>
+				<h3>Gain a key in exchange for Strange Alloy / Diamond which can unlock the door House of Sondar...</h3>
 
 				<h2>Escape Artist:</h2>
 				<h3>You slip out of handcuffs easily.</h3>

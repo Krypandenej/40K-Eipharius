@@ -39,6 +39,11 @@
 	ingredients = list(/obj/item/reagent_containers/food/snacks/meat/rat_meat)
 	product_path = /obj/structure/nganga
 
+/datum/rune_recipe/nurgle/key
+	name = "Daemon Key"
+	ingredients = list(/obj/item/stack/material/diamond)
+	product_path = (/obj/item/card/id/key/super/daemon)
+
 /datum/rune_recipe/nurgle/radio
 	name = "Create Radio"
 	ingredients = list(/obj/item/device/radio/headset)
@@ -52,12 +57,12 @@
 /datum/rune_recipe/nurgle/plate
 	name = "Plate Rite"
 	ingredients = list(/obj/item/stack/material/cloth)
-	product_path = /obj/item/clothing/suit/armor/flak1/renegadearmor
+	product_path = /obj/item/clothing/suit/armor/heretcoat/nurgcult
 
 /datum/rune_recipe/nurgle/mask
 	name = "Mask Rite"
 	ingredients = list(/obj/item/clothing/mask/gas)
-	product_path = /obj/item/clothing/head/helmet/culthelm/gas
+	product_path = /obj/item/clothing/head/helmet/nurgcult
 
 /datum/rune_recipe/nurgle/nade
 	name = "Nade Rite"

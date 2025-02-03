@@ -7,7 +7,7 @@
 	str_requirement = 24 // they can get gibbed and their armor stays. helmet has it, so why not armor too
 	canremove = 1
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
-	armor = list(melee = 12, bullet = 48, laser = 48, energy = 44, bomb = 60, bio = 100, rad = 80)
+	armor = list(melee = 18, bullet = 48, laser = 48, energy = 44, bomb = 60, bio = 100, rad = 80)
 	sales_price = 120
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -66,17 +66,29 @@
 	icon_state = "ultraterm"
 	item_state = "ultraterm"
 
-/obj/item/clothing/suit/armor/astartes/emperorschildren
+/obj/item/clothing/suit/armor/astartes/nightlord
 	name = "Astartes Mark VII Power Armour"
-	desc = "The Holy armour of the Emperor's chosen, This one bears the symbol of his position, Tactical Marine of the IIIrd Legion, Emperor's Children."
-	icon_state = "emperorscc"
-	item_state = "emperorscc"
+	desc = "The Holy armour of the Emperor's chosen, This one bears the symbol of his position, Tactical Marine of the IIIrd Legion, Night Lords."
+	icon_state = "nightlordc"
+	item_state = "nightlordc"
 
 /obj/item/clothing/suit/armor/astartes/alphalegion
 	name = "Astartes Mark VII Power Armour"
 	desc = "The Holy armour of the Emperor's chosen, This one bears the symbol of his position, Tactical Marine of the XXth Legion, Alpha Legion."
 	icon_state = "alphalegc"
 	item_state = "alphalegc"
+
+/obj/item/clothing/suit/armor/astartes/worldbearer
+	name = "Astartes Mark VII Power Armour"
+	desc = "The Holy armour of the Emperor's chosen, This one bears the symbol of his position, Tactical Marine of the XXth Legion, World Bearers."
+	icon_state = "worldbc"
+	item_state = "worldbc"
+
+/obj/item/clothing/suit/armor/astartes/plaguemarine
+	name = "Astartes Mark VII Power Armour"
+	desc = "The Holy armour of the Emperor's chosen, This one bears the symbol of his position, Tactical Marine of the XXth Legion, Plague Marines."
+	icon_state = "plaguemc"
+	item_state = "plaguemc"
 
 // SPESS MUUHREEN SIRGENT
 
@@ -456,8 +468,9 @@
 	item_state = "ultracap"
 	str_requirement = 25
 	canremove = 0
+	var/shield_count = 0
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/cell,/obj/item/gun/energy/las/lasgun)
-	armor = list(melee = 2, bullet = 55, laser = 55, energy = 30, bomb = 90, bio = 100, rad = 100)
+	armor = list(melee = 26, bullet = 55, laser = 55, energy = 30, bomb = 90, bio = 100, rad = 100)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -467,8 +480,7 @@
 
 /obj/item/clothing/suit/armor/astartes/terminator/shielded //Shielded version
 	name = "Indomitus Pattern Tactical Dreadnought Armour"
-
-var/shield_count = 0
+	shield_count = 5
 
 /obj/item/clothing/suit/armor/astartes/terminator/shielded/Initialize()
 	. = ..()
@@ -476,7 +488,7 @@ var/shield_count = 0
 
 /obj/item/clothing/suit/armor/astartes/terminator/shielded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile))
-		if(shield_count > 0 && prob(60))
+		if(shield_count > 0)
 			var/obj/item/projectile/P = damage_source
 			//var/reflectchance = 100 //Defined here, for if you want to make it have X percent chance of blocking the shot,
 			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
@@ -490,7 +502,7 @@ var/shield_count = 0
 		else
 			user.visible_message("<span class='warning'>[user]'s shield overloads!</span>")
 			user.update_inv_wear_suit()
-		return 1
+			return 0
 	return 0
 
 
@@ -499,14 +511,43 @@ var/shield_count = 0
 	return ..()
 
 /obj/item/clothing/suit/armor/astartes/terminator/shielded/Process()
-	if(shield_count < 3) //Set this to whatever you want the max number of charges to be.
+	if(shield_count < 6) //Set this to whatever you want the max number of charges to be.
 		sleep(60) //Timer in between recharge.
 		shield_count += 1
 		playsound(loc, 'sound/effects/compbeep1.ogg', 50, TRUE)
-	if(shield_count  == 3) //Whatever the max charge is, this plays the sound.
+	if(shield_count  == 6) //Whatever the max charge is, this plays the sound.
 		playsound(loc, 'sound/machines/ding.ogg', 50, TRUE)
 		STOP_PROCESSING(SSobj, src)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/C = loc
 			C.update_inv_wear_suit()
 
+/obj/item/clothing/suit/armor/astartes/terminator/verb/toggleclaw()
+	set name = "Extend Lightning Claws"
+	set category = "Weapons"
+	set src in usr
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	else
+		to_chat(usr,"You extend your lightning claws.")
+		usr.put_in_hands(new /obj/item/melee/energy/powersword/claw/integrated/terminator(usr))
+
+/obj/item/clothing/suit/armor/astartes/terminator/verb/activatestormbolter()
+	set name = "Activate Storm Bolter"
+	set category = "Weapons"
+	set src in usr
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	else
+		to_chat(usr,"You activate your integrated Storm Bolter.")
+		usr.put_in_hands(new /obj/item/gun/energy/integrated/stormbolter(usr))
+
+/obj/item/clothing/suit/armor/astartes/terminator/verb/togglefist()
+	set name = "Activate Power Fist"
+	set category = "Weapons"
+	set src in usr
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	else
+		to_chat(usr,"You activate your power fist.")
+		usr.put_in_hands(new /obj/item/melee/energy/powersword/fist/integrated/terminator(usr))
